@@ -31,7 +31,7 @@ async function bootstrap() {
   app.enableCors()
   await app.listen(process.env.PORT || 3080)
   logger.log(
-    `App is listening on port "${process.env.PORT}" with Environment ${process.env.NODE_ENV}`,
+    `App is listening on port "${process.env.PORT}" in ${process.env.NODE_ENV} environment `,
   )
 }
 
