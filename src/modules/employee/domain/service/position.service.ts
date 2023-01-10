@@ -1,6 +1,6 @@
 import {Injectable, Logger} from '@nestjs/common'
 import {InjectRepository} from '@nestjs/typeorm'
-import {Repository} from 'typeorm'
+import {Repository, TreeRepository} from 'typeorm'
 import {CreatePositionDto} from '../../application/dtos/create-position.dto'
 import {Position} from '../entities/position.entity'
 
@@ -9,12 +9,13 @@ export class PositionService {
   // private readonly logger = new Logger(PositionService.name)
   constructor(
     @InjectRepository(Position)
-    private positionRepository: Repository<Position>,
+    private positionRepository: TreeRepository<Position>,
   ) {}
 
   // Function to return all positions
   async getAllPositions(): Promise<Position[] | []> {
-    return await this.positionRepository.find()
+    // return await this.positionRepository.find({relations: ['parent']})
+    return await this.positionRepository.findTrees()
   }
 
   // function to get position by id

@@ -15,6 +15,8 @@ const validateEnvSetup = (): void => {
   if (!environment) {
     throw new Error('ENVIRONMENT variable is not setup')
   }
+
+  logger.log('environment', environment)
 }
 
 async function bootstrap() {
