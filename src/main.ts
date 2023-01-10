@@ -21,6 +21,7 @@ async function bootstrap() {
   validateEnvSetup()
 
   const app = await NestFactory.create(AppModule)
+  app.setGlobalPrefix('api')
 
   /* Refer: https://docs.nestjs.com/security/helmet */
   app.use(helmet())

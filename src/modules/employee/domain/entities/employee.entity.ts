@@ -9,10 +9,11 @@ import {
   Tree,
   UpdateDateColumn,
 } from 'typeorm'
+import {Position} from './position.entity'
 
 @Entity()
 @Tree('materialized-path')
-export class Position {
+export class Employee {
   @PrimaryGeneratedColumn({type: 'int'})
   id: number
 

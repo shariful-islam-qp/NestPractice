@@ -4,22 +4,26 @@ import {
   DeleteDateColumn,
   Entity,
   PrimaryGeneratedColumn,
+  Tree,
+  TreeChildren,
+  TreeParent,
   UpdateDateColumn,
 } from 'typeorm'
 
 @Entity()
+@Tree('materialized-path')
 export class Position {
   @PrimaryGeneratedColumn({type: 'int'})
   id: number
 
-  @Column({name: 'first_name', type: 'varchar'})
-  firstName: string
+  @Column({name: 'title', type: 'varchar'})
+  title: string
 
-  @Column({name: 'last_name', type: 'varchar'})
-  lastName: string
+  @TreeChildren()
+  children: Position[]
 
-  @Column({name: 'email', type: 'varchar'})
-  email: string
+  @TreeParent()
+  parent: Position
 
   @CreateDateColumn({name: 'created_at', type: 'datetime'})
   createdAt: Date
