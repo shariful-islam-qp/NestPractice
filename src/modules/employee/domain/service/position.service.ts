@@ -14,7 +14,12 @@ export class PositionService {
 
   // Function to return all positions
   async getAllPositions(): Promise<Position[] | []> {
-    // return await this.positionRepository.find({relations: ['parent']})
+    return await this.positionRepository.find({relations: ['parent']})
+    // return await this.positionRepository.findTrees()
+  }
+
+  // service function to return position hierarchy
+  async getPositionsHierarchy(): Promise<Position[] | []> {
     return await this.positionRepository.findTrees()
   }
 

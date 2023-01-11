@@ -4,6 +4,7 @@ import {
   DeleteDateColumn,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
   Tree,
@@ -12,9 +13,8 @@ import {
 import {Position} from './position.entity'
 
 @Entity()
-@Tree('materialized-path')
 export class Employee {
-  @PrimaryGeneratedColumn({type: 'int'})
+  @PrimaryGeneratedColumn({type: 'bigint'})
   id: number
 
   @Column({name: 'first_name', type: 'varchar'})
@@ -26,7 +26,11 @@ export class Employee {
   @Column({name: 'email', type: 'varchar'})
   email: string
 
-  @OneToOne(() => Position)
+  // @OneToOne(() => Position)
+  // @JoinColumn({name: 'position_id'})
+  // position: Position
+
+  @ManyToOne(() => Position, (position: Position) => position.employees)
   @JoinColumn({name: 'position_id'})
   position: Position
 

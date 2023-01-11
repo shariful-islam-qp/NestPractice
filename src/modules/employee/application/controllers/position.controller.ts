@@ -47,7 +47,15 @@ export class PositionController {
   @Get()
   async getAllPositions(): Promise<Position[] | []> {
     const data = await this.positionService.getAllPositions()
+    this.logger.log('Returning all positions')
+    return data
+  }
 
+  // endpoint to get all positions with hierarchy
+  @Get('/hierarchy')
+  async getPositionsHierarchy(): Promise<Position[] | []> {
+    const data = await this.positionService.getPositionsHierarchy()
+    this.logger.log('Returning all positions hierarchy')
     return data
   }
 
