@@ -5,9 +5,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  OneToOne,
   PrimaryGeneratedColumn,
-  Tree,
   UpdateDateColumn,
 } from 'typeorm'
 import {Position} from './position.entity'

@@ -1,6 +1,6 @@
-import {Injectable, Logger} from '@nestjs/common'
+import {Injectable} from '@nestjs/common'
 import {InjectRepository} from '@nestjs/typeorm'
-import {Repository, TreeRepository} from 'typeorm'
+import {TreeRepository} from 'typeorm'
 import {CreatePositionDto} from '../../application/dtos/create-position.dto'
 import {Position} from '../entities/position.entity'
 
@@ -29,7 +29,9 @@ export class PositionService {
   }
 
   // function to create a new position
-  async createNewPosition(createPositionDTO: CreatePositionDto) {
+  async createNewPosition(
+    createPositionDTO: CreatePositionDto,
+  ): Promise<Position> {
     const newPosition = this.positionRepository.create({
       ...createPositionDTO,
     })
