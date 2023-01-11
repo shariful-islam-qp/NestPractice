@@ -7,10 +7,10 @@ import {
   Logger,
   Post,
 } from '@nestjs/common'
-import {Employee} from '../../domain/entities/employee.entity'
-import {EmployeeService} from '../../domain/service/employee.service'
-import {PositionService} from '../../domain/service/position.service'
-import {CreateEmployeeDTO} from '../dtos/create-employee.dto'
+import { Employee } from '../../domain/entities/employee.entity'
+import { EmployeeService } from '../../domain/service/employee.service'
+import { PositionService } from '../../domain/service/position.service'
+import { CreateEmployeeDTO } from '../dtos/create-employee.dto'
 
 @Controller('employees')
 export class EmployeeController {

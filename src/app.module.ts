@@ -1,17 +1,11 @@
-import {Module} from '@nestjs/common'
-import {ConfigModule} from '@nestjs/config'
-import {TypeOrmModule} from '@nestjs/typeorm'
-import {AppController} from './app.controller'
-import {AppService} from './app.service'
-import {AuthModule} from './modules/auth/auth.module'
-import {EmployeeModule} from './modules/employee/employee.module'
-import {validate} from './env.validation'
-
-// const env = require('dotenv').config()
-
-// if (env.error) {
-//   throw env.error
-// }
+import { Module } from '@nestjs/common'
+import { ConfigModule } from '@nestjs/config'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { AuthModule } from './modules/auth/auth.module'
+import { EmployeeModule } from './modules/employee/employee.module'
+import { validate } from './env.validation'
 
 @Module({
   imports: [

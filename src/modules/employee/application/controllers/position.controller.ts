@@ -10,9 +10,9 @@ import {
   ParseIntPipe,
   Post,
 } from '@nestjs/common'
-import {Position} from '../../domain/entities/position.entity'
-import {PositionService} from '../../domain/service/position.service'
-import {CreatePositionDto} from '../dtos/create-position.dto'
+import { Position } from '../../domain/entities/position.entity'
+import { PositionService } from '../../domain/service/position.service'
+import { CreatePositionDto } from '../dtos/create-position.dto'
 
 @Controller('positions')
 export class PositionController {
@@ -59,11 +59,17 @@ export class PositionController {
     return data
   }
 
+  // endpoint to get all Descendants by a given positionId
+  // @Get('/:positionId/descendants')
+  // async getDescendants(@Param('positionId', ParseIntPipe) positionId: number) {
+  //   return await this.positionService.findPositionDescendants(positionId)
+  // }
+
   // function to return position details by id
-  @Get(':id')
-  async getPositionDetailsById(
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<Position | undefined> {
-    return await this.positionService.findOne(id)
-  }
+  // @Get(':id')
+  // async getPositionDetailsById(
+  //   @Param('id', ParseIntPipe) id: number,
+  // ): Promise<Position | undefined> {
+  //   return await this.positionService.findOne(id)
+  // }
 }
